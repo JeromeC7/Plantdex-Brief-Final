@@ -1,4 +1,4 @@
-export interface Plan {
+export interface Plant {
     id: number;
     nom: string;
     soleil: string;
