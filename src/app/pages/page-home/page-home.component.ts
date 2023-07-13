@@ -11,13 +11,19 @@ export class PageHomeComponent implements OnInit {
   [x: string]: any;
   //plante a afficher dans la page
   plantsToDisplay!: Plant[];
+  categories!: string[];
 
   constructor(private instancePlantService: PlantService) {}
 
   ngOnInit() {
-    this.instancePlantService.getPlants().subscribe((data) => {
+    this.instancePlantService.getPlants().subscribe((data: Plant[]) => {
       this.plantsToDisplay = data;
+      this.categories = [...new Set (this.plantsToDisplay.map(plant => plant.categorie)),];
       console.log(data);
     });
+  }
+
+  onClick() {
+    this.plantsToDisplay = [];
   }
 }

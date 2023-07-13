@@ -1,5 +1,7 @@
 <div class="container-plants">
-    <ul>
+    
+    <app-card *ngFor="let plant of plants"[unePlanteAAfficher]="plant"></app-card>
+    <!-- <ul>
         <li *ngFor="let plant of plants">{{ plant.nom }}</li>
-    </ul>
+    </ul> -->
 </div>
