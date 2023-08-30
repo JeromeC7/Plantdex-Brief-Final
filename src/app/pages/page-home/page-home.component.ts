@@ -19,11 +19,11 @@ export class PageHomeComponent implements OnInit {
   constructor(private instancePlantService: PlantService) {}
 
   ngOnInit() {
-    this.instancePlantService.getPlants().subscribe((data: Plant[]) => {
-      console.log(data);
+    this.instancePlantService.getPlants().subscribe((response) => {
+      console.log(response.data);
 
-      this.plantsToDisplay = [...data];
-      this.allPlants = [...data];
+      this.plantsToDisplay = response.data;
+      this.allPlants = response.data;
       // Pour supprimer les doublons d'un tableau
       // [...new Set(tableau)]
       this.categories = [

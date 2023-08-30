@@ -2,11 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Plant } from '../models/plant';
 import { Observable } from 'rxjs';
+interface apiresponse {status:string, data: Plant[]};
 
 @Injectable({
   providedIn: 'root',
 })
 export class PlantService {
+  axios: any;
   constructor(private http: HttpClient) {}
 
   /**
@@ -16,7 +18,14 @@ export class PlantService {
    * à partir de l'URL "http://localhost:3000/plants"
    *
    */
-  getPlants(): Observable<Plant[]> {
-    return this.http.get<Plant[]>('http://localhost:3000/plants');
+
+  getPlants(): Observable<apiresponse> {
+    return this.http.get<apiresponse>('http://localhost:3000/api/plantes');
+    //return this.http.get<Plant[]>('http://localhost:3000/plants');
+    //const response = await axios.get('https://votre-api.com/api/endpoint');
+    //return await this.axios.get<Plant[]>('http://localhost:3000/api/plantes');
   }
+
+
 }
+
