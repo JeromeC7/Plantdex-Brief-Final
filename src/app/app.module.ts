@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +15,8 @@ import { PlantListComponent } from './components/plant-list/plant-list.component
 import { CardComponent } from './components/card/card.component';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
+import { PlantComponent } from './components/plant/plant.component';
+import { PlanteUpdateComponent } from './components/plante-update/plante-update.component';
 
 @NgModule({
   declarations: [
@@ -26,8 +30,10 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
     CardComponent,
     SideBarComponent,
     SearchBarComponent,
+    PlantComponent,
+    PlanteUpdateComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule,FormsModule,ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

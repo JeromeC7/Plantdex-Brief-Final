@@ -2,13 +2,12 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Plant } from '../models/plant';
 import { Observable } from 'rxjs';
-interface apiresponse {status:string, data: Plant[]};
+interface apiresponse<T> {status:string, data: T};
 
 @Injectable({
   providedIn: 'root',
 })
 export class PlantService {
-  axios: any;
   constructor(private http: HttpClient) {}
 
   /**
@@ -19,13 +18,28 @@ export class PlantService {
    *
    */
 
-  getPlants(): Observable<apiresponse> {
-    return this.http.get<apiresponse>('http://localhost:3000/api/plantes');
+  getPlants(): Observable<apiresponse<Plant[]>> {
+    return this.http.get<apiresponse<Plant[]>>('http://localhost:3000/api/plantes');
     //return this.http.get<Plant[]>('http://localhost:3000/plants');
     //const response = await axios.get('https://votre-api.com/api/endpoint');
     //return await this.axios.get<Plant[]>('http://localhost:3000/api/plantes');
   }
 
+  getPlantbyId(id:number): Observable<apiresponse<Plant>> {
+    return this.http.get<apiresponse<Plant>>(`http://localhost:3000/api/plantes/${id}`);
+    //return this.http.get<Plant[]>('http://localhost:3000/plants');
+    //const response = await axios.get('https://votre-api.com/api/endpoint');
+    //return await this.axios.get<Plant[]>('http://localhost:3000/api/plantes');
+  }
+
+  deletePlant(id:number){
+    return this.http.delete<apiresponse<Plant>>(`http://localhost:3000/api/plantes/${id}`);
+  }
+
+  updatePlant(id:number, updated:string){
+    const dataUpdated = {"nom": updated};
+    return this.http.put<apiresponse<Plant>>(`http://localhost:3000/api/plantes/${id}`,dataUpdated);
+  }
 
 }
 

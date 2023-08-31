@@ -1,0 +1,11 @@
+<div class="card" style="width: 18rem">
+    <img class="card-img-top" src="{{ unePlanteAAfficher.image }}" alt="Card image cap" />
+    <div class="card-body">
+        <h5 class="card-title">{{ unePlanteAAfficher.nom }}</h5>
+        <p class="card-text">
+            {{ unePlanteAAfficher.categorie }}
+        </p>
+        <a (click)="delete(unePlanteAAfficher.id)" class="btn btn-primary">Supprimer</a>
+        <a [routerLink]="['/plant/update', unePlanteAAfficher.id]" class="btn btn-primary">Modifier</a>
+    </div>
+</div>
