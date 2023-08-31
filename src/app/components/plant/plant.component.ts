@@ -12,8 +12,9 @@ export class PlantComponent {
   constructor(private instancePlantService: PlantService, private activatedRoute:ActivatedRoute, private router:Router) {
   }
   unePlanteAAfficher!: Plant;
- ngOnInit() {
-  const id = this.activatedRoute.snapshot.params['id'];
+  
+  ngOnInit() {
+    const id = this.activatedRoute.snapshot.params['id'];
     this.instancePlantService.getPlantbyId(id).subscribe((response) => {
       console.log(response.data); 
       this.unePlanteAAfficher = response.data;

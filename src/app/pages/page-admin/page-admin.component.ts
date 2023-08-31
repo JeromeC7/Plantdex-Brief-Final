@@ -9,8 +9,10 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
   styleUrls: ['./page-admin.component.css']
 })
 export class PageAdminComponent {
+  storedToken: string | null;
   loginForm: FormGroup;
   constructor(private formBuilder: FormBuilder,private instanceUserService: UserService, private activatedRoute:ActivatedRoute, private router:Router) {
+    this.storedToken=localStorage.getItem('token');
     this.loginForm = new FormGroup({
       email: new FormControl(''),
       password: new FormControl(''),
@@ -18,12 +20,6 @@ export class PageAdminComponent {
   }
 
   ngOnInit() {
-    if (localStorage.getItem('token')) {
-      console.log("TOKEN présent dans localStorage");
-    }else{
-      console.log("TOKEN absent de localStorage");
-    }
-
     this.loginForm = this.formBuilder.group({
       email: ['admin@gmail.com', Validators.required],
       password: ['', Validators.required], // Initialize with an empty string and add any validators you need
@@ -39,6 +35,21 @@ export class PageAdminComponent {
       // Store the token in local storage
       localStorage.setItem('token', response.data);        
     });
+    this.router.navigate(['/home']);
+  }
+
+  signup(){
+    const loginForm = this.loginForm;
+    const data = {"email": loginForm.get('email')?.value,"password": loginForm.get('password')?.value};
+    this.instanceUserService.signup(data).subscribe((response: any) => {
+      console.log('User ajouté!'+response);      
+    });
+    this.router.navigate(['/home']);
+  }
+
+  logout(){
+    localStorage.removeItem('token');
+    this.router.navigate(['/home']);
   }
 }
 

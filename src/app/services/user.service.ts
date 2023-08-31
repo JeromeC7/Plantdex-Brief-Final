@@ -17,4 +17,7 @@ export class UserService {
   login(data: { email: string; password: string; }):Observable<LoginResponse>{
     return this.http.post<LoginResponse>(`http://localhost:3000/api/users/login`,data);
   }
+  signup(data: { email: string; password: string; }):Observable<LoginResponse>{
+    return this.http.post<LoginResponse>(`http://localhost:3000/api/users/signup`,data);
+  }
 }
