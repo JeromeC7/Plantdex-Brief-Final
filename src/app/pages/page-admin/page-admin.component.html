@@ -1,1 +1,12 @@
-<p>page-admin works!</p>
+<div class="card" style="width: 18rem">
+    <div class="card-body">
+        <h5 class="card-title">Ajout de plante:</h5>
+        <form [formGroup]="loginForm">
+            <p>Email :</p>
+            <input formControlName="email" />
+            <p>Mot de passe :</p>
+            <input formControlName="password" />
+            <button (click)="login()" class="btn btn-primary">Valider</button>
+        </form>
+    </div>
+</div>
