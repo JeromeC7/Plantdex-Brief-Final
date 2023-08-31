@@ -17,6 +17,7 @@ import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { PlantComponent } from './components/plant/plant.component';
 import { PlanteUpdateComponent } from './components/plante-update/plante-update.component';
+import { PlanteCreateComponent } from './components/plante-create/plante-create.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { PlanteUpdateComponent } from './components/plante-update/plante-update.
     SearchBarComponent,
     PlantComponent,
     PlanteUpdateComponent,
+    PlanteCreateComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule,FormsModule,ReactiveFormsModule],
   providers: [],

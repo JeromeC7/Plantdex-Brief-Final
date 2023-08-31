@@ -6,6 +6,7 @@ import { PageAdminComponent } from './pages/page-admin/page-admin.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { PlantComponent } from './components/plant/plant.component';
 import { PlanteUpdateComponent } from './components/plante-update/plante-update.component';
+import { PlanteCreateComponent } from './components/plante-create/plante-create.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' }, // si un user arrive sur localhost:4200 on le redirige vers localhost:4200/home
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'admin', component: PageAdminComponent },
   { path: 'plant/:id', component: PlantComponent },
   { path: 'plant/update/:id', component: PlanteUpdateComponent },
+  { path: 'createPlant', component: PlanteCreateComponent },
   { path: '**', component: PageNotFoundComponent },
 ];
 

@@ -41,5 +41,9 @@ export class PlantService {
     return this.http.put<apiresponse<Plant>>(`http://localhost:3000/api/plantes/${id}`,dataUpdated);
   }
 
+  createPlant(plant: Plant){
+    return this.http.post<apiresponse<Plant>>(`http://localhost:3000/api/plantes`,plant);
+  }
+
 }
 
