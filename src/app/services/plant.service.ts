@@ -33,16 +33,19 @@ export class PlantService {
   }
 
   deletePlant(id:number){
-    return this.http.delete<apiresponse<Plant>>(`http://localhost:3000/api/plantes/${id}`);
+    const token = localStorage.getItem('token');
+    return this.http.delete<apiresponse<Plant>>(`http://localhost:3000/api/plantes/${id}`,{headers :{ 'Authorization' : `Bearer ${token}`}});
   }
 
   updatePlant(id:number, updated:string){
     const dataUpdated = {"nom": updated};
-    return this.http.put<apiresponse<Plant>>(`http://localhost:3000/api/plantes/${id}`,dataUpdated);
+    const token = localStorage.getItem('token');
+    return this.http.put<apiresponse<Plant>>(`http://localhost:3000/api/plantes/${id}`,dataUpdated,{headers :{ 'Authorization' : `Bearer ${token}`}});
   }
 
   createPlant(plant: Plant){
-    return this.http.post<apiresponse<Plant>>(`http://localhost:3000/api/plantes`,plant);
+    const token = localStorage.getItem('token');
+    return this.http.post<apiresponse<Plant>>(`http://localhost:3000/api/plantes`,plant,{headers :{ 'Authorization' : `Bearer ${token}`}});
   }
 
 }

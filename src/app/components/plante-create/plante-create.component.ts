@@ -38,27 +38,18 @@ export class PlanteCreateComponent implements OnInit{
   
 
   create(){
-    
-    try {
-      const createForm = this.createForm;
-      if (createForm){
-        const nouvellePlante: Plant ={
-          id: Number(createForm.get('id')?.value),   
-          nom: createForm.get('Nom')?.value,   
-          arrosage: Number(createForm.get('arrosage')?.value), 
-          soleil: createForm.get('soleil')?.value,
-          categorie: createForm.get('categorie')?.value,
-          image: createForm.get('image')?.value
-        }
-        
-          this.instancePlantService.createPlant(nouvellePlante).subscribe((response) => {
-          });
-          console.log('Plante ajoutée!'+nouvellePlante);
-        }
-    } catch (error) {
-      console.log('Erreur lors de Update');
+    const createForm = this.createForm;
+    const nouvellePlante: Plant ={
+      id: Number(createForm.get('id')?.value),   
+      nom: createForm.get('nom')?.value,   
+      arrosage: Number(createForm.get('arrosage')?.value), 
+      soleil: createForm.get('soleil')?.value,
+      categorie: createForm.get('categorie')?.value,
+      image: createForm.get('image')?.value
     }
-  
+    this.instancePlantService.createPlant(nouvellePlante).subscribe((response) => {
+    });
+    console.log('Plante ajoutée!'+nouvellePlante);
+    this.router.navigate(['/home']);
   }
-  
 }

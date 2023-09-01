@@ -33,19 +33,14 @@ constructor(private formBuilder: FormBuilder,private instancePlantService: Plant
   }
 
   update(id:number){
-    try {
-      const updateForm = this.updateForm;
-      if (updateForm){
-        const nouveauNom = updateForm.get('nouveauNom');
-        if(nouveauNom){
-          const value = nouveauNom.value;
-          this.instancePlantService.updatePlant(id,nouveauNom.value).subscribe((response) => {
-          });
-          console.log('Update effectué!'+nouveauNom.value);
-        }
-      }
-    } catch (error) {
-      console.log('Erreur lors de Update');
+    const updateForm = this.updateForm;
+    const nouveauNom = updateForm.get('nouveauNom');
+    if(nouveauNom){
+      const value = nouveauNom.value;
+      this.instancePlantService.updatePlant(id,nouveauNom.value).subscribe((response) => {
+      });
+      console.log('Update effectué!'+nouveauNom.value);
     }
+    this.router.navigate(['/home']);
   }
 }

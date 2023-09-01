@@ -5,7 +5,7 @@
             <p>Email :</p>
             <input formControlName="email" />
             <p>Mot de passe :</p>
-            <input formControlName="password" />
+            <input type="password" formControlName="password" />
             <button *ngIf="!storedToken" (click)="login()" class="btn btn-primary">Connexion</button>
             <button *ngIf="storedToken" (click)="signup()" class="btn btn-primary">Créer Utilisateur</button>
             <button *ngIf="storedToken" (click)="logout()" class="btn btn-primary">Déconnexion</button>

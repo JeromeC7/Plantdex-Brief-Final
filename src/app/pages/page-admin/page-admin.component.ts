@@ -8,7 +8,7 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
   templateUrl: './page-admin.component.html',
   styleUrls: ['./page-admin.component.css']
 })
-export class PageAdminComponent {
+export class PageAdminComponent implements OnInit{
   storedToken: string | null;
   loginForm: FormGroup;
   constructor(private formBuilder: FormBuilder,private instanceUserService: UserService, private activatedRoute:ActivatedRoute, private router:Router) {
