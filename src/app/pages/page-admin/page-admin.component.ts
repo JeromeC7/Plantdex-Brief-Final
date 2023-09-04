@@ -21,15 +21,15 @@ export class PageAdminComponent implements OnInit{
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
-      email: ['admin@gmail.com', Validators.required],
-      password: ['', Validators.required], // Initialize with an empty string and add any validators you need
+      email: ['admin@gmail.com', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(5)]], // Initialize with an empty string and add any validators you need
       });
   }
 
   login(){
     const loginForm = this.loginForm;
     const data = {"email": loginForm.get('email')?.value,"password": loginForm.get('password')?.value};
-    this.instanceUserService.login(data).subscribe((response: any) => {
+    this.instanceUserService.login(data).subscribe((response) => {
       console.log('User connecté!'+response);
       console.log("token = "+response.data);
       // Store the token in local storage
@@ -39,12 +39,15 @@ export class PageAdminComponent implements OnInit{
   }
 
   signup(){
-    const loginForm = this.loginForm;
-    const data = {"email": loginForm.get('email')?.value,"password": loginForm.get('password')?.value};
-    this.instanceUserService.signup(data).subscribe((response: any) => {
-      console.log('User ajouté!'+response);      
-    });
-    this.router.navigate(['/home']);
+    if(this.loginForm.valid){
+      const data = {"email": this.loginForm.get('email')?.value,"password": this.loginForm.get('password')?.value};
+      this.instanceUserService.signup(data).subscribe((response) => {
+      console.log('User ajouté!'+response); 
+      this.router.navigate(['/home']);    
+      });
+    }else{
+      alert("Formulaire invalide");
+    }
   }
 
   logout(){

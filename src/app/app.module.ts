@@ -18,6 +18,9 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
 import { PlantComponent } from './components/plant/plant.component';
 import { PlanteUpdateComponent } from './components/plante-update/plante-update.component';
 import { PlanteCreateComponent } from './components/plante-create/plante-create.component';
+import { DropComponent } from './drop/drop.component';
+import { SunComponent } from './sun/sun.component';
+import { LikeComponent } from './like/like.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +37,9 @@ import { PlanteCreateComponent } from './components/plante-create/plante-create.
     PlantComponent,
     PlanteUpdateComponent,
     PlanteCreateComponent,
+    DropComponent,
+    SunComponent,
+    LikeComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule,FormsModule,ReactiveFormsModule],
   providers: [],

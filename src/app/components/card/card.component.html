@@ -9,6 +9,14 @@
     <p class="card-text">
       {{ unePlanteAAfficher.categorie }}
     </p>
+    <p>Ensoleillement:
+      <app-sun *ngFor="let i of range(getSunRange())" [fill]="true"></app-sun>
+      <app-sun *ngFor="let i of range(3-getSunRange())" [fill]="false"></app-sun>
+    <p>Arrosage:
+      <app-drop *ngFor="let i of range(unePlanteAAfficher.arrosage)" [fill]="true"></app-drop>
+      <app-drop *ngFor="let i of range(3-unePlanteAAfficher.arrosage)" [fill]="false"></app-drop>
+    </p>
     <a [routerLink]="['/plant', unePlanteAAfficher.id]" class="btn btn-primary">Consulter</a>
+    <p><app-like></app-like></p>
   </div>
 </div>
