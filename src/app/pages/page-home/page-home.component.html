@@ -11,8 +11,18 @@
     <!-- <div class="container-plants"> -->
         
 <div id="flexIt">
-    <app-filter-bar [categoriesRecupDeLaHome]="categories"></app-filter-bar>
+    <div><app-filter-bar [categoriesRecupDeLaHome]="categories"(categoryEnvoiParent)="ecouteDeLenfant($event)">
+
+    </app-filter-bar><a [routerLink]="['/create']" class="btn btn-primary">Création plante</a></div>
+    
+    <div>
+
+    <app-search-bar _ngcontent-gfw-c59 _nghost-gfw-c58 (userInput)="onSearchDesParents($event)"></app-search-bar>
+    <app-sort-by (selectedFilter)="triMoiCaStp($event)"></app-sort-by>
     <app-plant-list [plants]="plantsToDisplay"></app-plant-list>
     </div>
 </div>
+
+</div>
  <!-- </div> -->
+ 

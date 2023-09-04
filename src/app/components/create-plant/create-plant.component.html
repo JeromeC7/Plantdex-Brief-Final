@@ -1,0 +1,51 @@
+<form [formGroup]="createPlante" (ngSubmit)="onSubmit()">
+    <!--  -->
+<div class="form-group">
+    <label for="image">image</label>
+    <input type="text" id="image" class="form-control" formControlName="image">
+</div>
+
+    <div class="form-group">
+        <label for="id">id :</label>
+        <input type="number" id="id" class="form-control" formControlName="id">
+        <div *ngIf="createPlante.get('id')?.hasError('required') && createPlante.get('nom')?.touched"
+            class="alert alert-danger">
+            L'id est requis'</div>
+    </div>
+
+    <div class="form-group">
+        <label for="nom">Nom :</label>
+        <input type="text" id="nom" class="form-control" formControlName="nom">
+        <div *ngIf="createPlante.get('nom')?.hasError('required') && createPlante.get('nom')?.touched" class="alert alert-danger">
+            Le nom est requis</div>
+    </div>
+
+    <div class="form-group">
+        <label for="soleil">soleil :</label>
+        <input type="soleil" id="soleil" class="form-control" formControlName="soleil">
+        <div *ngIf="createPlante.get('soleil')?.hasError('required') && createPlante.get('soleil')?.touched"
+            class="alert alert-danger">L'soleil est requis</div>
+        <div *ngIf="createPlante.get('soleil')?.hasError('soleil') && createPlante.get('soleil')?.touched"
+            class="alert alert-danger">L'soleil n'est pas valide</div>
+    </div>
+
+    <div class="form-group">
+        <label for="arrosage">arrosage :</label>
+        <input type="number" id="arrosage" class="form-control" formControlName="arrosage">
+        <div *ngIf="createPlante.get('l\'arrosage')?.hasError('min') && createPlante.get('l\'arrosage')?.touched" class="alert alert-danger">
+            La l'arrosage n'est pas valide</div>
+    </div>
+
+    <div class="form-group">
+        <label for="categorie">categorie :</label>
+        <input type="text" id="catégorie" class="form-control" formControlName="categorie">
+        <div *ngIf="createPlante.get('la categorie')?.hasError('min') && createPlante.get('la categorie')?.touched"
+            class="alert alert-danger">L'âge
+            La catégorie</div>
+    </div>
+
+    <!-- Ajoutez d'autres champs de createPlante ici -->
+
+    <button type="submit" class="btn btn-primary">Créer</button>
+
+</form>

@@ -1,1 +1,32 @@
-<p>page-admin works!</p>
+<div class="card" style="width: 18rem">
+    <div class="card-body">
+        <h5 class="card-title">Gestion des utilisateurs:</h5>
+        <!-- <form [formGroup]="formulaire">
+            <p>Email :</p>
+            <input formControlName="email" />
+            <p>Mot de passe :</p>
+            <input formControlName="password" />
+            <button *ngIf="!storedToken" (click)="login()" class="btn btn-primary">Connexion</button>
+            <button *ngIf="storedToken" (click)="signup()" class="btn btn-primary">Créer Utilisateur</button>
+            <button *ngIf="storedToken" (click)="logout()" class="btn btn-primary">Déconnexion</button>
+        </form> -->
+        <form (ngSubmit)="signup()" [formGroup]="formulaire">
+            <p>Email :</p>
+            <input formControlName="email" />
+            <p>Mot de passe :</p>
+            <input type="password" formControlName="password" />
+            <button *ngIf="!storedToken" (click)="login()" class="btn btn-primary">Connexion</button>
+            <button type="submit" *ngIf="storedToken" class="btn btn-primary">Créer Utilisateur</button>
+            <button *ngIf="storedToken" (click)="logout()" class="btn btn-primary">Déconnexion</button>
+            <div *ngIf="formulaire.get('email')?.hasError('required')">
+                L'email est requis.
+                </div>
+                <div *ngIf="formulaire.get('email')?.hasError('email')">
+                    L'email n'est pas valide.
+                </div>
+                <div *ngIf="formulaire.get('password')?.hasError('minlength')">
+                    Le mot de passe est trop court.
+             </div>
+        </form>
+    </div>
+</div>

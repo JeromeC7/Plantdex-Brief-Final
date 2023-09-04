@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -12,6 +13,13 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { PlantListComponent } from './components/plant-list/plant-list.component';
 import { CardComponent } from './components/card/card.component';
 import { FilterBarComponent } from './components/filter-bar/filter-bar.component';
+import { SearchBarComponent } from './search-bar/search-bar.component';
+import { SortByComponent } from './sort-by/sort-by.component';
+import { PlantComponent } from './components/plant/plant.component';
+import { PlanteUpdateComponent } from './components/plante-update/plante-update.component';
+import { CreatePlantComponent } from './components/create-plant/create-plant.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -23,14 +31,15 @@ import { FilterBarComponent } from './components/filter-bar/filter-bar.component
     PageNotFoundComponent,
     PlantListComponent,
     CardComponent,
-    FilterBarComponent
+    FilterBarComponent,
+    SearchBarComponent,
+    SortByComponent,
+    PlantComponent,
+    PlanteUpdateComponent,
+    CreatePlantComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, ReactiveFormsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -1,0 +1,23 @@
+<div class="card" style="width: 18rem;">
+    <img src="{{ unePlanteAAfficher.image }}" class="card-img-top" alt="Card image cap">
+    <div class="card-body">
+        <h5 class="card-title">{{ unePlanteAAfficher.nom }}</h5>
+        <form (submit)="updatedPlante(unePlanteAAfficher.id, unePlanteAAfficher.nom)">
+            <div class="form-group">
+                <label for="nom">Nom de la plante</label>
+                <input type="text" class="form-control" id="nom" [(ngModel)]="nouveauNom" name="nom">
+            </div>
+            <p class="card-text">{{ unePlanteAAfficher.categorie }} </p>
+            <p class="card-number">Arrosage : {{unePlanteAAfficher.arrosage}} </p>
+            <p class="card-soleil">Soleil : {{unePlanteAAfficher.soleil}} </p>
+            <!-- <a [routerLink]="['/plant', unePlanteAAfficher.id]" class="btn btn-primary">Go somewhere</a> -->
+            <!-- <button class="btn btn-danger" (click)="deletePlante(unePlanteAAfficher.id)">Supprimer</button> -->
+            
+            <button type="submit" (click)="updatedPlante(unePlanteAAfficher.id, nouveauNom)"><a [routerLink]="['/plant/update', unePlanteAAfficher.id]" class="btn btn-primary">Modifier</a></button>
+        </form>
+    </div>
+</div>
+
+
+
+    

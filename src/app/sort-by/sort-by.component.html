@@ -1,0 +1,25 @@
+<div>
+    Trier :
+
+    <div class="inline-block">
+        <label for="title-name">
+            <input (change)="selectedFilter.emit($event)" type="radio" id="title-name" name="radio-filter"
+                value="nom" />
+            <span class="label-body"> Nom de la plante </span>
+        </label>
+    </div>
+    <div class="inline-block">
+        <label for="first-name">
+            <input (change)="selectedFilter.emit($event)" type="radio" id="first-name" name="radio-filter"
+                value="arrosage" />
+            <span class="label-body"> Arrosage </span>
+        </label>
+    </div>
+    <div class="inline-block">
+        <label for="last-name">
+            <input (change)="selectedFilter.emit($event)" type="radio" id="last-name" name="radio-filter"
+                value="soleil" />
+            <span class="label-body"> Soleil </span>
+        </label>
+    </div>
+</div>
