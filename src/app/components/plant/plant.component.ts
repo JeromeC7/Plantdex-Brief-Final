@@ -6,24 +6,28 @@ import { Plant } from 'src/app/models/plant';
 @Component({
   selector: 'app-plant',
   templateUrl: './plant.component.html',
-  styleUrls: ['./plant.component.css']
+  styleUrls: ['./plant.component.css'],
 })
 export class PlantComponent {
-  constructor(private instancePlantService: PlantService, private activatedRoute:ActivatedRoute, private router:Router) {
-  }
+  constructor(
+    private instancePlantService: PlantService,
+    private activatedRoute: ActivatedRoute,
+    private router: Router
+  ) {}
   unePlanteAAfficher!: Plant;
-  
+
   ngOnInit() {
     const id = this.activatedRoute.snapshot.params['id'];
     this.instancePlantService.getPlantbyId(id).subscribe((response) => {
-      console.log(response.data); 
+      console.log(response.data);
       this.unePlanteAAfficher = response.data;
     });
   }
 
-  delete(id:number){
+  delete(id: number) {
+    console.log("au niveau du delete l'id est" + id);
     this.instancePlantService.deletePlant(id).subscribe((response) => {
-      console.log("La plante a été supprimée.");
+      console.log('La plante a été supprimée.' + response);
     });
     this.router.navigate(['/home']);
   }

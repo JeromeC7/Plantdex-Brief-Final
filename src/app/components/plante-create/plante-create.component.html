@@ -1,20 +1,20 @@
 <div class="card" style="width: 18rem">
-    <div class="card-body">
-        <h5 class="card-title">Ajout de plante:</h5>
-        <form [formGroup]="createForm">
-            <p>Id :</p>
-            <input formControlName="id" />
-            <p>Nom :</p>
-            <input formControlName="nom" />
-            <p>Catégorie :</p>
-            <input formControlName="categorie" />
-            <p>Arrosage :</p>
-            <input formControlName="arrosage" />
-            <p>Soleil :</p>
-            <input formControlName="soleil" />
-            <p>Image :</p>
-            <input formControlName="image" />
-            <button (click)="create()" class="btn btn-primary">Ajouter</button>
-        </form>
-    </div>
+  <div class="card-body">
+    <h5 class="card-title">Ajout de plante:</h5>
+    <form [formGroup]="createForm" (ngSubmit)="create()">
+      <p>Id :</p>
+      <input formControlName="id" />
+      <p>Nom :</p>
+      <input formControlName="nom" />
+      <p>Catégorie :</p>
+      <input formControlName="categorie" />
+      <p>Arrosage :</p>
+      <input formControlName="arrosage" />
+      <p>Soleil :</p>
+      <input formControlName="soleil" />
+      <p>Image :</p>
+      <input formControlName="image" />
+      <button type="submit" class="btn btn-primary">Ajouter</button>
+    </form>
+  </div>
 </div>

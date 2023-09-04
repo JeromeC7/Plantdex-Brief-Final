@@ -1,14 +1,45 @@
-<div class="card" style="width: 18rem">
-    <div class="card-body">
-        <h5 class="card-title">Gestion des utilisateurs:</h5>
-        <form [formGroup]="loginForm">
-            <p>Email :</p>
-            <input formControlName="email" />
-            <p>Mot de passe :</p>
-            <input type="password" formControlName="password" />
-            <button *ngIf="!storedToken" (click)="login()" class="btn btn-primary">Connexion</button>
-            <button *ngIf="storedToken" (click)="signup()" class="btn btn-primary">Créer Utilisateur</button>
-            <button *ngIf="storedToken" (click)="logout()" class="btn btn-primary">Déconnexion</button>
-        </form>
-    </div>
-</div>
+<!-- <div class="card" style="width: 18rem">
+  <div class="card-body">
+    <h5 class="card-title">Gestion des utilisateurs:</h5>
+    <form [formGroup]="loginForm" (ngSubmit)="submitForm()">
+      <p>Email :</p>
+      <input formControlName="email" />
+      <p>Mot de passe :</p>
+      <input type="password" formControlName="password" />
+      <button *ngIf="!storedToken" type="submit" class="btn btn-primary">
+        Connexion
+      </button>
+      <button *ngIf="storedToken" type="submit" class="btn btn-primary">
+        Créer Utilisateur
+      </button>
+      <button *ngIf="storedToken" (click)="logout()" class="btn btn-primary">
+        Déconnexion
+      </button>
+    </form>
+  </div>
+</div> -->
+<form (ngSubmit)="signup()" [formGroup]="loginForm">
+  <p>Email :</p>
+  <input formControlName="email" />
+  <!-- Message d'erreur pour l'email -->
+  <div class="red" *ngIf="loginForm.get('email')?.hasError('email')">
+    L'email est invalide.
+  </div>
+  <div class="red" *ngIf="loginForm.get('email')?.hasError('required')">
+    L'email est requis.
+  </div>
+
+  <p>Mot de passe :</p>
+  <input type="password" formControlName="password" />
+
+  <!-- Boutons -->
+  <button *ngIf="!storedToken" (click)="login()" class="btn btn-primary">
+    Connexion
+  </button>
+  <button *ngIf="storedToken" type="submit" class="btn btn-primary">
+    Créer Utilisateur
+  </button>
+  <button *ngIf="storedToken" (click)="logout()" class="btn btn-primary">
+    Déconnexion
+  </button>
+</form>
