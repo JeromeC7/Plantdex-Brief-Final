@@ -9,6 +9,40 @@
     <p class="card-text">
       {{ unePlanteAAfficher.categorie }}
     </p>
-    <a [routerLink]="['/plant', unePlanteAAfficher.id]" class="btn btn-primary">Consulter</a>
+    <p class="card-text df" *ngIf="unePlanteAAfficher.soleil === 'peu'">
+      <app-soleil class="yellow"></app-soleil><app-soleil></app-soleil>
+      <app-soleil></app-soleil> <app-soleil></app-soleil>
+      <app-soleil></app-soleil> <app-soleil></app-soleil>
+    </p>
+    <p class="card-text df" *ngIf="unePlanteAAfficher.soleil === 'moyen'">
+      <app-soleil class="yellow"></app-soleil
+      ><app-soleil class="yellow"></app-soleil>
+      <app-soleil class="yellow"></app-soleil> <app-soleil></app-soleil>
+      <app-soleil></app-soleil> <app-soleil></app-soleil>
+    </p>
+    <p class="card-text df" *ngIf="unePlanteAAfficher.soleil === 'beaucoup'">
+      <app-soleil class="yellow"></app-soleil
+      ><app-soleil class="yellow"></app-soleil>
+      <app-soleil class="yellow"></app-soleil>
+      <app-soleil class="yellow"></app-soleil>
+      <app-soleil class="yellow"></app-soleil>
+      <app-soleil class="yellow"></app-soleil>
+    </p>
+    <p class="card-text df" *ngIf="unePlanteAAfficher.arrosage === 0">
+      <app-goutte></app-goutte><app-goutte></app-goutte
+      ><app-goutte></app-goutte>
+    </p>
+    <p class="card-text df" *ngIf="unePlanteAAfficher.arrosage === 2">
+      <app-goutte class="blue"></app-goutte
+      ><app-goutte class="blue"></app-goutte><app-goutte></app-goutte>
+    </p>
+    <p class="card-text df" *ngIf="unePlanteAAfficher.arrosage === 3">
+      <app-goutte class="blue"></app-goutte
+      ><app-goutte class="blue"></app-goutte
+      ><app-goutte class="blue"></app-goutte>
+    </p>
+    <a [routerLink]="['/plant', unePlanteAAfficher.id]" class="btn btn-primary"
+      >Consulter</a
+    >
   </div>
 </div>

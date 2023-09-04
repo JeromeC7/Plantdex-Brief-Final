@@ -18,6 +18,8 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
 import { PlantComponent } from './components/plant/plant.component';
 import { PlanteUpdateComponent } from './components/plante-update/plante-update.component';
 import { PlanteCreateComponent } from './components/plante-create/plante-create.component';
+import { GoutteComponent } from './components/goutte/goutte.component';
+import { SoleilComponent } from './components/soleil/soleil.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,8 @@ import { PlanteCreateComponent } from './components/plante-create/plante-create.
     PlantComponent,
     PlanteUpdateComponent,
     PlanteCreateComponent,
+    GoutteComponent,
+    SoleilComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule,FormsModule,ReactiveFormsModule],
   providers: [],
