@@ -1,0 +1,15 @@
+<div>
+    <span>Trier par : </span>
+    <label for="nom">
+        <input (change)="sortBy.emit($event)" type="radio" id="title-name" name="radio-filter" value="nom" />
+        <span class="label-body"> Nom </span>
+    </label>
+    <label for="arrosage">
+        <input (change)="sortBy.emit($event)" type="radio" id="title-name" name="radio-filter" value="arrosage" />
+        <span class="label-body"> Arrosage </span>
+    </label>
+    <label for="soleil">
+        <input (change)="sortBy.emit($event)" type="radio" id="title-name" name="radio-filter" value="soleil" />
+        <span class="label-body"> Ensoleillement </span>
+    </label>
+</div>

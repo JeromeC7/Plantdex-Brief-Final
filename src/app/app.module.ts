@@ -21,6 +21,8 @@ import { PlanteCreateComponent } from './components/plante-create/plante-create.
 import { DropComponent } from './drop/drop.component';
 import { SunComponent } from './sun/sun.component';
 import { LikeComponent } from './like/like.component';
+import { FilterBarComponent } from './filterbar/filterbar.component';
+import { SortByComponent } from './sort-by/sort-by.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,8 @@ import { LikeComponent } from './like/like.component';
     DropComponent,
     SunComponent,
     LikeComponent,
+    FilterBarComponent,
+    SortByComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule,FormsModule,ReactiveFormsModule],
   providers: [],

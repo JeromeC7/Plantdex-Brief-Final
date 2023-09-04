@@ -65,4 +65,53 @@ export class PageHomeComponent implements OnInit {
       );
     }
   }
+
+  filterPlantList(categoriesDeLenfant: string[]){
+    this.plantsToDisplay = this.allPlants.filter(plant=>
+      categoriesDeLenfant.includes(plant.categorie));
+  }
+
+  sortBy(triSelected: Event) {
+    const searchForElement = triSelected.target as HTMLInputElement;
+    // Tri par nom
+    if(searchForElement.value=="nom"){
+        this.plantsToDisplay.sort((A, B) => {
+        if (A["nom"]< B["nom"]) {
+          return -1;
+        }
+        if (A["nom"] > B["nom"]) {
+          return 1;
+        }
+        return 0;
+      });
+    }
+
+    // Tri par arrosage
+    if(searchForElement.value=="arrosage"){
+        this.plantsToDisplay.sort((A, B) => {
+        if (A["arrosage"]< B["arrosage"]) {
+          return -1;
+        }
+        if (A["arrosage"] > B["arrosage"]) {
+          return 1;
+        }
+        return 0;
+      });
+    }
+
+    // Tri par ensoleillement
+    if(searchForElement.value=="soleil"){
+        this.plantsToDisplay.sort((A, B) => {
+        if (A["soleil"]< B["soleil"]) {
+          return -1;
+        }
+        if (A["soleil"] > B["soleil"]) {
+          return 1;
+        }
+        return 0;
+      });
+    }
+
+    
+  }
 }
